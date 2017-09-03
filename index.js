@@ -35,7 +35,7 @@ function getFacebookEvents (accountName) {
         }
       });
   }
-  return getPage(`https://graph.facebook.com/v2.8/${accountName}/events?access_token=${process.env.FB_TOKEN}&limit=100&fields=id,name,description,start_time,attending_count,place,interested_count`);
+  return getPage(`https://graph.facebook.com/v2.8/${accountName}/events?access_token=${process.env.FB_TOKEN}&limit=100&fields=id,name,owner,start_time,attending_count,place,interested_count`);
 }
 
 function postNewEvent (source, event) {
@@ -47,7 +47,7 @@ function postNewEvent (source, event) {
       method: 'POST',
       json: true,
       body: {
-        text: `${source}: <https://www.facebook.com/events/${event.id}|${event.name}> (${event.attending_count} attending, ${event.interested_count} interested)`
+        text: `${source}: <https://www.facebook.com/events/${event.id}|${event.name}> (${event.attending_count} attending, ${event.owner} )`
       }
     });
   }
