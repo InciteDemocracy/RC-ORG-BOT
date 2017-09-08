@@ -47,7 +47,7 @@ function postNewEvent (source, event) {
       method: 'POST',
       json: true,
       body: {
-        text: `${source}: <https://www.facebook.com/ ${JSON.stringify(event.owner)}>`
+        text: `${source}: <https://www.facebook.com/${JSON.stringify(event.owner)}|${JSON.stringify(event.owner)}>`
       }
     });
   }
